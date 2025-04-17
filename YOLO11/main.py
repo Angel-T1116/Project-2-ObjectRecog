@@ -1,12 +1,13 @@
 from ultralytics import YOLO
+import torch
 
 # Load a model
 model = YOLO("weights\yolo11x.pt")  # load an official model
 
+
 # Predict with the model
-results = model.predict("https://ultralytics.com/images/bus.jpg", show=True, save=True)  # predict on an image
-
-
+results = model.predict("IMG_4400.mp4", show=True, stream=True, save=True, device='cpu')  # predict on an image
+print(results)
 
 # Access the results
 for result in results:
