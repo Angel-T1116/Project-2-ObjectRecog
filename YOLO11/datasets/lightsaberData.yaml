@@ -1,0 +1,13 @@
+train: Lightsabers.v1i.yolov11/train/images
+val: Lightsabers.v1i.yolov11/valid/images
+test: Lightsabers.v1i.yolov11/test/images
+
+nc: 7
+names: ['Blue', 'Bue', 'Green', 'Purple', 'Red', 'White', 'Yellow']
+
+roboflow:
+  workspace: norbert-oszoli
+  project: lightsabers
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/norbert-oszoli/lightsabers/dataset/1

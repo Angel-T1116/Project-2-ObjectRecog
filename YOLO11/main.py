@@ -4,40 +4,17 @@ import cv2
 import os
 import pydoc
 
-"""
-This function converts the video output from ultralytics in a .avi format to .mp4
-"""
-def videoConverter(inputPath, outputPath):
-    """Converts video in .avi format to .mp4"""
-    
-    # convert the video into a cv2 input
-    vid = cv2.VideoCapture(inputPath)
 
-    # get data from the video
-    fps = vid.get(cv2.CAP_PROP_FPS)
-    width = int(vid.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    vid_size = (width, height)
-
-    # create an output file in mp4 format
-    output = cv2.VideoWriter(outputPath, cv2.VideoWriter_fourcc(*'mp4v'), fps, vid_size)
-
-    # write the frames into the output video
-    while(True):
-        ret, frame = vid.read()
-        if not (ret):
-            break
-        output.write(frame)
-
-    vid.release()
-    output.release()
-        
 # Load a model
-model = YOLO("weights\yolo11x.pt")  # load an official model
+# model = YOLO("weights\yolo11x.pt")  # load an official model
 
+
+model = YOLO("runs/detect/train5/weights/best.pt")
+
+results = model.train(data="datasets/lightsaberData.yaml", epochs=100, imgsz=640, batch=4, device=0)
 
 # Predict with the model
-results = model.predict("IMG_4400.mp4", show=True, stream=True, save=True, device='cpu')  # predict on an image
+# results = model.predict("IMG_4400.mp4", show=True, stream=True, save=True, device='cpu')  # predict on an image
 
 # Access the results
 for result in results:
@@ -51,7 +28,8 @@ for result in results:
 inputPath = r"runs\detect\predict\IMG_4400.avi"
 outputPath = r"runs\detect\predict\results.mp4"
 
-videoConverter(inputPath, outputPath)
+""" run video conversion using openCV"""
+# videoConverter(inputPath, outputPath)
 
 # generate pydoc documentation file
 pydoc.writedoc('main')
