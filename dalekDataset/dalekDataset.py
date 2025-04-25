@@ -4,18 +4,13 @@ from icrawler.builtin import BingImageCrawler
 
 # List of search keywords to broaden dataset variety
 keywords = [
-    "Dalek Doctor Who",
-    "Classic Dalek",
-    "Dalek toy",
-    "Dalek prop",
-    "Gold Dalek",
-    # "Dalek model kit",
-    "Dalek figurine"
-    # "Dalek cosplay"
+    "Jedi Lightsaber",
+    "Lightsaber",
+    "Starwars Lightsaber",
 ]
 
 # Base folder to store images
-base_dir = "dataset"
+base_dir = "LightDataset"
 
 # Loop through each keyword
 for idx, keyword in enumerate(keywords):
@@ -48,4 +43,4 @@ for idx, keyword in enumerate(keywords):
     print(f"✅ Finished downloading for '{keyword}'")
 
     # Optional delay between requests (to be respectful to Bing)
-    time.sleep(20)  # 10 second pause between keywords
+    time.sleep(20)  # 20 second pause between keywords
