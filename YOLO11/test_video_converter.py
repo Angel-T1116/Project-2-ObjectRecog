@@ -4,9 +4,13 @@ import numpy as np
 from videoConverter import videoConverter
 import pydoc
 
+
+
 """ unit test for video converter"""
 def test_videoConverter():
     """ Create video for testing"""
+    os.makedirs("runs/test", exist_ok=True)
+
     test_path = "runs/test/test.avi"
     output_path = "runs/test/test.mp4"
 
