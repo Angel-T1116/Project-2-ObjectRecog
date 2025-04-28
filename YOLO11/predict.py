@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import cv2
 import os
+import numpy as np
 
 """ unit test for video converter"""
 def test_videoConverter():
