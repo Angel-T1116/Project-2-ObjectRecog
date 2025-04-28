@@ -2,55 +2,8 @@ from ultralytics import YOLO
 import cv2
 import os
 import numpy as np
-
-""" unit test for video converter"""
-def test_videoConverter():
-    """ Create video for testing"""
-    test_path = "runs/test/test.avi"
-    output_path = "runs/test/test.mp4"
-
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter(test_path, fourcc, 10.0, (120, 120))
-
-    for _ in range(20):
-        frame = 255 * np.ones((120, 120, 3), dtype=np.uint8)
-        out.write(frame)
-
-
-    out.release()
-    videoConverter(test_path, output_path)
-    assert output_path.exists(), "Video converter did not create an output video."
-
-
-"""
-This function converts the video output from ultralytics in a .avi format to .mp4
-"""
-def videoConverter(inputPath, outputPath):
-    """Converts video in .avi format to .mp4"""
-    
-    # convert the video into a cv2 input
-    vid = cv2.VideoCapture(inputPath)
-
-    # get data from the video
-    fps = vid.get(cv2.CAP_PROP_FPS)
-    width = int(vid.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    vid_size = (width, height)
-
-    # create an output file in mp4 format
-    output = cv2.VideoWriter(outputPath, cv2.VideoWriter_fourcc(*'mp4v'), fps, vid_size)
-
-    # write the frames into the output video
-    while(True):
-        ret, frame = vid.read()
-        if not (ret):
-            break
-        output.write(frame)
-
-    vid.release()
-    output.release()
-        
-
+from videoConverter import videoConverter
+import pydoc
 
 # Load a model
 model = YOLO("weights/best.pt")  # load a trained model
@@ -79,4 +32,4 @@ outputPath = r"runs\detect\predict\results.mp4"
 videoConverter(inputPath, outputPath)
 
 # generate pydoc documentation file
-# pydoc.writedoc('predict')
+pydoc.writedoc('predict')

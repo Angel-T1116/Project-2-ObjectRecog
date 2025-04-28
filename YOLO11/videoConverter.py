@@ -1,5 +1,6 @@
 import cv2
 import os
+import pydoc
 
 """
 This function converts the video output from ultralytics in a .avi format to .mp4
@@ -28,4 +29,6 @@ def videoConverter(inputPath, outputPath):
 
     vid.release()
     output.release()
+
+pydoc.writedoc('videoConverter')
         

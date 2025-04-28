@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import torch 
 
+""" File containing training parameters used to generate model"""
 model = YOLO("yolo11x.pt")
 
 # train model using ultralytics
