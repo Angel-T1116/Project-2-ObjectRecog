@@ -1,7 +1,7 @@
 import cv2
 import os
 import numpy as np
-from predict import videoConverter
+from videoConverter import videoConverter
 import pydoc
 
 """ unit test for video converter"""
