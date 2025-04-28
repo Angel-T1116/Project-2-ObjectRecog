@@ -3,7 +3,11 @@ import torch
 
 model = YOLO("yolo11x.pt")
 
-
-results = model.train(data="datasets/lightsaberData.yaml", epochs=100, imgsz=640, batch=4, device=0)
-
-
+# train model using ultralytics
+results = model.train(data="coco.yaml", # replace this with whatever dataset file
+                        project="runs/detect", # path to place runs in
+                        name="train", # folder within the project
+                        epochs=100, 
+                        imgsz=640,
+                        batch=4, # reduce batch size for smaller GPU 
+                        device=0) # device=0 for GPU training

@@ -2,6 +2,25 @@ from ultralytics import YOLO
 import cv2
 import os
 
+""" unit test for video converter"""
+def test_videoConverter():
+    """ Create video for testing"""
+    test_path = "runs/test/test.avi"
+    output_path = "runs/test/test.mp4"
+
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    out = cv2.VideoWriter(test_path, fourcc, 10.0, (120, 120))
+
+    for _ in range(20):
+        frame = 255 * np.ones((120, 120, 3), dtype=np.uint8)
+        out.write(frame)
+
+
+    out.release()
+    videoConverter(test_path, output_path)
+    assert output_path.exists(), "Video converter did not create an output video."
+
+
 """
 This function converts the video output from ultralytics in a .avi format to .mp4
 """
@@ -31,6 +50,7 @@ def videoConverter(inputPath, outputPath):
     output.release()
         
 
+
 # Load a model
 model = YOLO("weights/best.pt")  # load a trained model
 
@@ -38,8 +58,7 @@ model = YOLO("weights/best.pt")  # load a trained model
 # Predict with the model for video input
 # results = model.predict("IMG_4400.mp4", show=True, stream=True, save=True, device=0)  # predict on an image
 
-# predict for image
-# results = model.predict(source="datasets/Lightsabers.v1i.yolov11/test/images", project="runs/detect", name="predict", save=True, device=0)  # predict on an image
+# predict for images in directory
 results = model.predict(source="datasets/Lightsabers.v1i.yolov11/test/images", project="runs/detect", name="predict", save=True, device=0)  # predict on an image
 
 
@@ -59,4 +78,4 @@ outputPath = r"runs\detect\predict\results.mp4"
 videoConverter(inputPath, outputPath)
 
 # generate pydoc documentation file
-# pydoc.writedoc('main')
+# pydoc.writedoc('predict')
