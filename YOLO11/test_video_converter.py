@@ -1,7 +1,7 @@
 import cv2
 import os
 import numpy as np
-from videoConverter import videoConverter
+from predict import videoConverter
 import pydoc
 
 
