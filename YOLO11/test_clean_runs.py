@@ -4,7 +4,7 @@ from predict import clean_runs
 
 def test_clean_runs():
     testPath = "testDir"
-    os.mkdir(testPath, exist_ok=True)
+    os.makedirs(testPath, exist_ok=True)
 
     clean_runs(testPath)
 
