@@ -37,3 +37,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Generate Documentation with PyDoc
+      run: | 
+        pydoc("predict")
+        pydoc("test_clean_runs")
+        pydoc("test_video_converter")
+        pydoc("train")
