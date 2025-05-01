@@ -4,6 +4,7 @@ import os
 import numpy as np
 import shutil
 import pydoc
+import webbrowser
 
 #TO DO: take output path from results and use as input for videoConverter
 
@@ -74,5 +75,5 @@ if __name__ == "__main__":
     """ run video conversion using openCV"""
     videoConverter(inputPath, outputPath)
 
-    # generate pydoc documentation file
-    pydoc.writedoc('predict')
+    pydoc.writedoc(predict)
+    

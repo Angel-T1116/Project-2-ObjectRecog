@@ -39,7 +39,19 @@ jobs:
         pytest
     - name: Generate Documentation with PyDoc
       run: | 
+        mkdir -p documentation
         python -m pydoc -w predict.py
         python -m pydoc -w test_clean_runs.py
         python -m pydoc -w test_video_converter.py
         python -m pydoc -w train.py
+        mv *.html documentation/
+    - name: Add documentation to repository
+      run: | 
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git pull origin main
+        git add documentation/*.html
+        git commit -m "Added generated pydoc documentation "
+        git push origin main
+      env: 
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

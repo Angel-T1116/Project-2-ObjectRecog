@@ -1,2 +1,13 @@
 YOLO11/.venv/
-YOLO11/weights/
+YOLO11/weights/yolo11x.pt
+YOLO11/weights/best.pt
+YOLO11/runs/
+YOLO11/test/
+YOLO11/train/
+YOLO11/valid/
+weights/yolo11x.pt
+runs/ 
+yolo11n.pt
+yolo11x.pt
+yolo11l.pt
+.gitignore
