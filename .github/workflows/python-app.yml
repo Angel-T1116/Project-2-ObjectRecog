@@ -38,16 +38,13 @@ jobs:
       run: |
         pytest
 
-    - name: Check current directory
-      run: | 
-        pwd && ls -la
     - name: Generate Documentation with PyDoc
       run: | 
         mkdir -p documentation
-        python -m pydoc -w predict
-        python -m pydoc -w test_clean_runs
-        python -m pydoc -w test_video_converter
-        python -m pydoc -w train
+        python -m pydoc -w YOLO11/predict
+        python -m pydoc -w YOLO11/test_clean_runs
+        python -m pydoc -w YOLO11/test_video_converter
+        python -m pydoc -w YOLO11/train
         mv *.html documentation/
     - name: Add documentation to repository
       run: | 
