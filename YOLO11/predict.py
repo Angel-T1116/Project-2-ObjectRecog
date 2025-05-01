@@ -75,7 +75,5 @@ if __name__ == "__main__":
     """ run video conversion using openCV"""
     videoConverter(inputPath, outputPath)
 
-    if __name__ == "__main__":
-    script_name = os.path.splitext(os.path.basename(__file__))[0]
-    pydoc.writedoc(script_name)
-    webbrowser.open(f"{script_name}.html")
+    pydoc.writedoc(predict)
+    
