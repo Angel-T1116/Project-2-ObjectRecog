@@ -45,7 +45,13 @@ jobs:
         python -m pydoc -w YOLO11/test_clean_runs
         python -m pydoc -w YOLO11/test_video_converter
         python -m pydoc -w YOLO11/train
+        
+
+    - name: List all HTML files
+      run: |
+        ls -la *.html
         mv *.html documentation/
+        
     - name: Add documentation to repository
       run: | 
         git config --global user.name "github-actions"
