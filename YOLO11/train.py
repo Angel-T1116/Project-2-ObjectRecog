@@ -2,10 +2,10 @@ from ultralytics import YOLO
 import torch 
 
 """ File containing training parameters used to generate model"""
-model = YOLO("yolo11x.pt")
+model = YOLO("yolo11x.pt") # load pretrained model
 
 # train model using ultralytics
-results = model.train(data="coco.yaml", # replace this with whatever dataset file
+results = model.train(data="data.yaml", # ensure you have the dataset downloaded before using this
                         project="runs/detect", # path to place runs in
                         name="train", # folder within the project
                         epochs=100, 

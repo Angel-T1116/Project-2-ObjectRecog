@@ -75,5 +75,5 @@ if __name__ == "__main__":
     """ run video conversion using openCV"""
     videoConverter(inputPath, outputPath)
 
-    pydoc.writedoc(predict)
+    pydoc.writedoc('predict')
     
