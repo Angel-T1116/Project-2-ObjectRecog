@@ -14,7 +14,8 @@ This project implements an object recognition system using deep learning to dete
 - Dog
 - Person
 
-The input is a video file (.mp4) or an image (jpeg, jpg, png), and the output is a new video file (.mp4) or image with bounding boxes and labels around detected objects.
+The input is a video file (.mp4) or an image (jpeg, jpg, png), and the output is a new video file (.mp4) or image with bounding boxes and labels around detected objects. <br> 
+Included in the repository are the image scrapers used to collect the dataset
 
 ---
 
