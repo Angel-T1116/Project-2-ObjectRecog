@@ -1,8 +1,5 @@
 --extra-index-url https://download.pytorch.org/whl/cu128
 
+pytorch
 ultralytics
 opencv-python
-torch
-torchvision
-torchaudio
-numpy
