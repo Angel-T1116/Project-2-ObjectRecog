@@ -49,15 +49,17 @@ if __name__ == "__main__":
     folder = "runs/detect/predict"
     clean_runs(folder)
     # Load a model
-    model = YOLO("weights/yolo11x.pt")  # load a trained model
+    model = YOLO("weights/best.pt")  # load a trained model
 
 
     # Predict with the model for video input
     inputVid = "IMG_4400"
     inputExt = ".mp4"
 
-    # predict for images in directory
+    # predict for video in directory
     results = model.predict(source=f"datasets/{inputVid}{inputExt}", project="runs/detect", name="predict", stream=True, show=True, save=True, device=0)  # predict on an image
+    # predict for images in directory
+    # results = model.predict(source=f"datasets/test/images", project="runs/detect", name="predict", save=True, device=0)  # predict on an image
 
 
     # Access the results
@@ -75,5 +77,5 @@ if __name__ == "__main__":
     """ run video conversion using openCV"""
     videoConverter(inputPath, outputPath)
 
-    pydoc.writedoc('predict')
+    #pydoc.writedoc('predict')
     
