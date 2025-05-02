@@ -1,6 +1,6 @@
 import shutil
 import os
-from predict import clean_runs
+from YOLO11.predict import clean_runs
 
 def test_clean_runs():
     testPath = "testDir"

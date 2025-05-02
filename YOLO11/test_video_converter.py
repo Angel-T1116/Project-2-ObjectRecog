@@ -1,7 +1,7 @@
 import cv2
 import os
 import numpy as np
-from predict import videoConverter
+from YOLO11.predict import videoConverter
 import pydoc
 
 
