@@ -21,7 +21,7 @@ The tests cover:
 
 | Module                  | Test Cases                                                                   | Status |
 |-------------------------|------------------------------------------------------------------------------|--------|
-| `CustomVideoConverter()`| - Converts `.avi` to `.mp4` correctly<br>- Handles invalid input paths       | Passed |
+| `videoConverter()`      | - Converts `.avi` to `.mp4` correctly<br>- Handles invalid input paths       | Passed |
 | `clean_runs()`          | - Deletes old output folders/files<br>- Does not crash if folders missing    | Passed |
 
 Tests are implemented in `test_video_converter.py` and `test_clean_runs.py`. Executed using `pytest` locally and in CI.
@@ -45,6 +45,7 @@ The trained YOLOv11 model was tested on:
 - Dataset samples for: Daleks, lightsabers, cats, dogs, people
 - At least one test video per class
 - Confirmed >75% accuracy on all categories
+- Due to the large size the test dataset cannot be uploaded, but a few images from the prediction of the test set are included under resultsPredict folder. 
 
 ---
 
@@ -55,7 +56,6 @@ GitHub Actions workflow performs the following:
 - Code linting (`flake8`)
 - Unit test execution (`pytest`)
 - PyDoc HTML generation (`pydoc`)
-- Auto-push documentation to GitHub Pages
 
 ---
 
